@@ -24,7 +24,7 @@ jobs:
       - add_ssh_keys:
           fingerprints:
             - "a1:cb:22:d4:5f:bc:88:90:21:b7:34:15:2f:6f:05:f0"
-      - run: ssh ${USER_NAME}@${HOST_NAME} 'git pull && cd flaskapp && sudo /usr/local/bin/docker-compose up'
+      - run: ssh ${USER_NAME}@${HOST_NAME} 'git pull origin master && sudo /usr/local/bin/docker-compose up'
 
 # テストが成功した場合のみ、deployを実行するようにします。
 workflows:
