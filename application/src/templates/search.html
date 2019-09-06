@@ -1,0 +1,17 @@
+{% extends "index.html" %}
+{% block content %}
+
+<!-- Blog Post -->
+{% for content in contents %}
+<div class="card mb-4">
+  
+  <div class="card-body">
+    <h2 class="card-title">{{content.name}}</h2>
+    <p class="card-text">{{content.body}}</p>
+
+  </div>
+
+</div>
+{% endfor%}
+
+{% endblock %}

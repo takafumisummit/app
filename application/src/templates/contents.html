@@ -1,0 +1,25 @@
+{% extends "index.html" %}
+{% block content %}
+
+<!-- Blog Post -->
+{% for content in contents.items %}
+<div class="card mb-4">
+  <div class="card-body">
+    <h2 class="card-title">{{content.name}}</h2>
+    <p class="card-text">{{content.body}}</p>
+  </div>
+</div>
+
+{% endfor%}
+
+<!-- Pagination -->
+
+{% for page in contents.iter_pages(left_edge=3, right_edge=3) %}
+
+  {% if page %}
+    <a  href="{{ url_for('hello',page=page) }}">{{ page }}</a>
+  {% else %}
+  {% endif %}
+
+{% endfor %}
+{% endblock %}
