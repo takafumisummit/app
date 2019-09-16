@@ -5,7 +5,7 @@
 {% for content in contents.items %}
 <div class="card mb-4">
   <div class="card-body">
-    <h2 class="card-title">{{content.name}}</h2>
+    <h2 class="card-title"><a href="{{ url_for('google_search',id=content.id) }}">{{content.name}}</a></h2>
     <p class="card-text">{{content.body}}</p>
   </div>
 </div>

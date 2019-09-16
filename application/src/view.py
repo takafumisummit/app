@@ -1,4 +1,4 @@
-from flask import render_template, request, url_for
+from flask import render_template, request, url_for, redirect
 from src import app
 from sqlalchemy import Column, Integer, String, Text
 from src import db
@@ -33,3 +33,8 @@ def search():
       search = "%{}%".format(word)
       content = Yugioh_Content.query.filter(Yugioh_Content.name.like(search)).all()
       return render_template("search.html",contents = content)
+
+@app.route('/test/<id>', methods=['GET', 'POST'])
+def google_search(id):
+    word = Yugioh_Content.query.filter(Yugioh_Content.id == id).first()
+    return redirect('https://www.google.com/search?q='+word.name)
